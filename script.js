@@ -8,10 +8,10 @@ const charset = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
     "u", "v", "w", "x", "y", "z", ".", ",", "!", "?",
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-//This indicates the subset the programm is currently in
+//This indicates the subset the program is currently in
 const setNumber = ["Mi", "Me", "Mo", "Mu"];
 
-//This is the equivalent for each character is a subset
+//This is the equivalent for each character in a subset
 const catEquivalent = ["meow", "miaw", "miou", "miew", "mew", "miow", "miuw", "maou", "mow", "miu"];
 
 function humanChanged() {
