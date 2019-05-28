@@ -8,10 +8,10 @@ const charset = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
     "u", "v", "w", "x", "y", "z", ".", ",", "!", "?",
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-//This indicates the subset the program is currently in
+//This indicates the subset the programm is currently in
 const setNumber = ["Mi", "Me", "Mo", "Mu"];
 
-//This is the equivalent for each character in a subset
+//This is the equivalent for each character is a subset
 const catEquivalent = ["meow", "miaw", "miou", "miew", "mew", "miow", "miuw", "maou", "mow", "miu"];
 
 function humanChanged() {
@@ -41,13 +41,17 @@ function humanChanged() {
 function catChanged() {
     const text = catText.value;
     let translation = "";
-    let subSet = -1;
+    let subSet = 0;
 
     const searchSub = /(Mi|Me|Mo|Mu)/g;
     let splitted = text.split(searchSub);
-    splitted.shift();
+    let startsWithSub = 1;
+    if (splitted[0] == " "){
+        splitted.shift();
+        startsWithSub = 0;
+    }
     for (let i = 0; i < splitted.length; i++) {
-        if (i % 2 == 0)
+        if (i % 2 == startsWithSub)
             subSet = setNumber.indexOf(splitted[i]);
         else {
             for (let j = 0; j < catEquivalent.length; j++) {
