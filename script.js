@@ -45,13 +45,8 @@ function catChanged() {
 
     const searchSub = /(Mi|Me|Mo|Mu)/g;
     let splitted = text.split(searchSub);
-    let startsWithSub = 1;
-    if (splitted[0] == " "){
-        splitted.shift();
-        startsWithSub = 0;
-    }
     for (let i = 0; i < splitted.length; i++) {
-        if (i % 2 == startsWithSub)
+        if (i % 2 == 1)
             subSet = setNumber.indexOf(splitted[i]);
         else {
             for (let j = 0; j < catEquivalent.length; j++) {
