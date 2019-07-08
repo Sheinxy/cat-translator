@@ -61,3 +61,42 @@ function catChanged() {
     }
     humanText.value = translation;
 }
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function darkMode() {
+    const body = document.body;
+    const header = document.body.getElementsByTagName("header")[0];
+    const button = document.getElementById("darkMode");
+
+    dark = !dark;
+
+    const prefix = dark ? 'dark' : 'light';
+
+    body.className = `${prefix}body`;
+    header.className = `${prefix}header`;
+    catText.className = `${prefix}textarea`;
+    humanText.className = `${prefix}textarea`;
+
+    const next = dark ? 'Light' : 'Dark';
+    button.textContent = `${next} Mode`
+
+    document.cookie = `dark=${dark};`;
+}
+
+let dark = (getCookie("dark") == 'true') ? false : true;
+darkMode();
