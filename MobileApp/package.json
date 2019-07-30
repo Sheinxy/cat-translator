@@ -1,0 +1,29 @@
+{
+  "name": "cattranslator",
+  "displayName": "Cat Translator",
+  "version": "2.1.0",
+  "description": "A silly cat translator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Sheinxy",
+  "license": "MIT",
+  "dependencies": {
+    "cordova-android": "^8.0.0"
+  },
+  "devDependencies": {
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}
