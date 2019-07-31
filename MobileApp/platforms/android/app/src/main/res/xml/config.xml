@@ -11,6 +11,7 @@
     <author email="raphitou.montes@gmail.com" href="https://sheinxy.github.io">
         Sheinxy
     </author>
+    <icon src="www/assets/icon-dusk.png" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
