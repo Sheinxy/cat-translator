@@ -33,8 +33,6 @@ function swap() {
 
     document.querySelector(`.source-${destination}[name="source"]`).click();
     document.querySelector(`.destination-${source}[name="destination"]`).click();
-
-    translate();
 }
 
 document.querySelector('.swap').addEventListener('click', swap);
