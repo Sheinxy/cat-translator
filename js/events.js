@@ -27,7 +27,6 @@ source_input.addEventListener('input', translate);
 document.querySelectorAll('input[name="source"], input[name="destination"]').forEach( language => language.addEventListener('change', translate));
 
 function swap() {
-    source_input.value = destination_output.value;
     const source = document.querySelector('input[name="source"]:checked').className.match(/source-(\S+)/)[1];
     const destination = document.querySelector('input[name="destination"]:checked').className.match(/destination-(\S+)/)[1];
 
