@@ -19,8 +19,7 @@ function from_human({ prefixes, charset, words, special }, text) {
     return text.reduce((translation, char) => {
         if (char === ' ') return translation + ' ';
 
-        const processor = new RegExp(char, 'i');
-        const char_idx = charset.search(processor);
+        const char_idx = charset.indexOf(char.toLowerCase());
 
         if (char_idx === -1)
             return translation + `${special}${from_human({ prefixes, charset, words }, char.to_hex())}${special}`;
