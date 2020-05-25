@@ -1,0 +1,14 @@
+{
+    "cat": {
+        "charset": "abcdefghijklmnopqrstuvwxyz.,!?0123456789",
+        "prefixes": ["Mi", "Me", "Mo", "Mu"],
+        "special": "My",
+        "words": ["meow", "miaw", "miou", "miew", "mew", "miow", "miuw", "maou", "mow", "miu"]
+    },
+    "dog": {
+        "charset": "abcdefghijklmnopqrstuvwxyz.,!?0123456789",
+        "prefixes": ["Wa", "We", "Wo", "Wu"],
+        "special": "Wy",
+        "words": ["bark", "woof", "wouf", "ruff", "grrr", "grgr", "yip", "waf", "grr", "wof"]
+    }
+}

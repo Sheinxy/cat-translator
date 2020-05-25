@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+@import url('/css/themes.css')
+
+
+*
+    box-sizing border-box
+
+    margin 0
+    padding 0
+    
+body
+    font-family: 'Roboto', sans-serif
+
+    width 100vw
+    height 100vh
+
+    display flex
+    flex-direction column
+    align-items center
+
+    color var(--text-primary-color)
+
+    background-color var(--secondary-color)
+
+a
+    color var(--link-primary-color)
+
+    text-decoration none
+
+    &:hover
+        color var(--link-secondary-color)
+
+nav 
+    padding 5px
+
+    width 100%
+
+    display flex
+    flex-direction row
+    align-items center
+
+    border-bottom 1px solid var(--box-shadow)
+
+    background-color var(--primary-color)
+
+    overflow hidden
+
+    .nav-icon, .theme-icon
+        margin 0px 25px
+
+        width 55px
+        height 55px
+
+        filter brightness(var(--icon-brightness)) saturate(var(--icon-saturate)) hue-rotate(var(--icon-hue))
+
+    h1
+        color var(--text-secondary-color)
+
+    .theme
+        display flex
+        flex-direction row
+        align-items center
+
+        .themes
+            transform translateX(100%)
+            
+            opacity 0
+
+            width 100%
+            height 100%
+
+            display flex
+            flex-direction row
+            align-items center
+            flex-wrap wrap
+
+            transition transform 1s ease-in-out, opacity 1s ease-in-out
+
+            .theme-button
+                cursor pointer
+
+                margin 10px 10px
+
+                width 20px
+                height 20px
+
+                border 2px solid var(--primary-color)
+                border-radius 50px
+
+                background-color var(--destination-color)
+
+                &:hover
+                    border 2px solid var(--link-primary-color)
+                    background-color var(--secondary-color)
+
+        @media only screen and (max-width 525px)
+            .themes
+                display none
+
+        @media only screen and (max-width 600px)
+            .themes
+                width 140px
+        
+        &:hover
+            @media only screen and (min-width 525px)
+                .themes
+                    opacity 1
+                    transform translateX(0)
+
+                .theme-icon
+                    transform rotate(-90deg)
+
+        .theme-icon
+            transition transform 1s ease-in-out
+
+            &:active
+                filter brightness(calc((var(--icon-brightness) + 1) * 2 )) saturate(var(--icon-saturate)) hue-rotate(var(--icon-hue))
+
+        .theme-icon:last-child
+            margin-left auto 
+
+    .theme:last-child
+        margin-left auto
+
+    @media only screen and (max-width 525px)
+        .nav-icon
+            transform translateX(100%)
+
+    @media only screen and (min-width 525px) and (max-width 600px)
+        .nav-icon
+            transform translateX(225%)
+
+    @media only screen  and (max-width 600px)
+        h1
+            display none 
+
+        .nav-icon
+            margin-left auto
+
+main
+    display flex
+    flex-direction column
+    align-items center
+
+    box-shadow 0 2px 2px var(--box-shadow)
+    
+    .languages, .translator
+        width 100%
+
+        display flex
+        flex-direction row
+        align-items center
+
+    .languages
+        width 100%
+        height 60px
+
+        border-top 1px solid var(--box-shadow)
+        border-bottom 1px solid var(--box-shadow)
+
+        background-color var(--primary-color)
+
+        .sources, .destinations
+            width 50%
+            height 100%
+
+            display flex
+            flex-direction row
+            align-items center
+
+            overflow-x auto
+
+            &::-webkit-scrollbar 
+                height 5px
+
+            &::-webkit-scrollbar-track 
+                background: #0000000C
+
+            &::-webkit-scrollbar-thumb 
+                background: var(--link-primary-color)
+
+                border-radius 25px
+
+            &::-webkit-scrollbar-thumb:hover 
+                background: var(--link-secondary-color)
+
+            .language
+                cursor pointer
+
+                width 100%
+                height 100%
+
+                display flex
+                align-items center
+
+                span 
+                    width 100%
+                    height 100%
+
+                    display flex
+                    align-items center
+                    justify-content center
+
+                    font-size 125%
+
+                    color var(--text-secondary-color)
+
+                input 
+                    display none
+
+                    &:checked ~ span 
+                        width 150%
+                        color var(--link-secondary-color)
+
+                        border-bottom 4px solid var(--link-secondary-color)
+
+                &:hover
+                    background-color rgba(150, 150, 150, .5)
+                    filter brightness(1.5)
+
+                @media only screen and (min-width 600px)
+                    min-width 100px
+
+                @media only screen and (max-width 600px)
+                    min-width 75px
+                
+                
+
+        .swap
+            cursor pointer
+
+            height 40%
+
+            filter brightness(var(--swap-brightness)) saturate(var(--icon-saturate)) hue-rotate(var(--icon-hue))
+
+            &:hover
+                filter brightness(calc(var(--swap-brightness) * 1.5)) saturate(var(--icon-saturate)) hue-rotate(var(--icon-hue))
+
+        @media only screen and (min-width 800px)
+            border-radius 8px 8px 0px 0px
+
+    
+    .translator
+        flex-wrap wrap
+
+        .source-input, .destination-output
+            padding 20px
+
+            font-size 175%
+            color var(--text-color)
+
+            border-style none
+
+            resize none
+
+        .source-input
+            background-color var(--source-color)
+
+        @media only screen and (max-width 600px)
+            .source-input, .destination-output
+                width 100%
+                height 30vh
+
+            .destination-output
+                color var(--destination-small-placeholder)
+
+                background-color var(--destination-small-color)
+
+                &::placeholder
+                    color var(--destination-small-placeholder)
+
+        @media only screen and (min-width 600px)
+            .source-input, .destination-output
+                width 50%
+                height 35vh
+
+            .destination-output
+                background-color var(--destination-color)
+
+                &::placeholder
+                    color var(--destination-placeholder)
+
+
+        @media only screen and (min-width 800px)
+            .source-input
+                border-radius 0px 0px 0px 8px
+
+            .destination-output
+                border-radius 0px 0px 8px 0px
+
+    @media only screen and (max-width 600px)
+        width 100%
+
+    @media only screen and (min-width 600px)
+        margin-top 10vh
+    
+    @media only screen and (max-width 800px)   
+        width 100%
+   
+    @media only screen and (min-width 800px)
+        width 90%
+
+        border-radius 8px
+                
+
+    
+
+footer
+    padding 25px
+    margin-top auto
+
+    text-align center

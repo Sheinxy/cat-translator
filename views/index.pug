@@ -1,0 +1,63 @@
+mixin language(type, name, check=false)
+    label.language
+        input(type="radio" class=type+"-"+name.toLowerCase() checked=check name=type)
+        span= name
+
+mixin theme(name)
+    div(class="theme-button " + name id=name+"-theme")
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="./css/style.css")
+        link(rel="icon" href="./images/favicon.svg" type="image/svg+xml")
+        script(src="./js/events.js" defer)
+        script(src="./js/themes.js" defer)
+        title Cat Translator
+    body
+        nav
+            img.nav-icon(src="./images/icon.svg")
+            h1 Cat Translator
+            .theme
+                .themes
+                    +theme("white")
+                    +theme("black")
+                    +theme("dark-blue")
+                    +theme("dark-red")
+                    +theme("blue")
+                    +theme("red")
+                    +theme("pink")
+                    
+                img.theme-icon(src="./images/themes/moon.svg")
+                
+        
+        main
+            .languages
+                .sources
+                    //- +language("source", "Human", true)
+                    //- +language("source", "Cat")
+                    //- +language("source", "Dog")
+                    +language("source", languages[0][0].toUpperCase() + languages[0].slice(1), true)
+                    - let i = 1
+                    while i < languages.length
+                        +language("source", languages[i][0].toUpperCase() + languages[i].slice(1))
+                        - i++
+
+                img.swap(src="./images/languages/swap.svg")
+                .destinations
+                    - i = 0
+                    while i < languages.length
+                        if i != 1
+                            +language("destination", languages[i][0].toUpperCase() + languages[i].slice(1))
+                        else
+                            +language("destination", languages[i][0].toUpperCase() + languages[i].slice(1), true)
+                        - i++
+            .translator
+                textarea.source-input
+                textarea.destination-output(placeholder="Translation" disabled)
+
+        footer
+            h4 Cat Translator 3.0.0 - by <a href="https://sheinxy.github.io">Sheinxy</a>
+            h5 Icon based on <a href="https://twitter.com/TakaseShitpost">Takase</a>'s work
